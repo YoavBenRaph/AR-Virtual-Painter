@@ -39,6 +39,13 @@ while True:
     img = detector.findHands(img)
     lmList = detector.findPosition(img, draw = False)
 
+    # Define and draw the Clear button on the left side, under the header
+    clear_button_x1, clear_button_y1 = 20, 140
+    clear_button_x2, clear_button_y2 = 120, 190
+    cv2.rectangle(img, (clear_button_x1, clear_button_y1), (clear_button_x2, clear_button_y2), (0, 0, 255), cv2.FILLED)
+    cv2.putText(img, "Clear", (clear_button_x1 + 10, clear_button_y1 + 35), cv2.FONT_HERSHEY_SIMPLEX, 0.7,
+                (255, 255, 255), 2)
+
     if len(lmList) != 0:
         #print(lmList)
 
@@ -55,6 +62,13 @@ while True:
         # 4. If selection mode - Two fingers up
         if fingers[1] and fingers[2]:
             xp, yp = 0, 0
+
+            # Check for a click on the Clear button
+            if clear_button_x1 < x1 < clear_button_x2 and clear_button_y1 < y1 < clear_button_y2:
+                # Clear the canvas by resetting the image to all zeros
+                imgCanvas = np.zeros((720, 1280, 3), np.uint8)
+                print("Canvas Cleared!")
+
             print("Selection Mode")
             #Checking for click
             if y1 < 125:
