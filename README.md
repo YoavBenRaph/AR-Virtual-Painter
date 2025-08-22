@@ -10,6 +10,7 @@
 - **Intuitive Controls**: Switch between drawing and selection modes using two-finger gestures.
 - **Color Palette**: Select different colors (magenta, blue, green) from a dynamic on-screen menu.
 - **Eraser Tool**: A simple gesture allows you to erase parts of your drawing.
+- **Clear Button**: A dedicated button to erase all drawings from the canvas.
 
 ## ⚡ How It Works
 
